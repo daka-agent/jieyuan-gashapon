@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>1024 解愿扭蛋局</title>
+  <link rel="stylesheet" href="./css/style.css">
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "./vendor/three.module.js",
+      "three/addons/": "./vendor/addons/"
+    }
+  }
+  </script>
+</head>
+<body>
+  <div id="scene"></div>
+
+  <!-- 顶部标题 -->
+  <header class="hud hud-top">
+    <div class="brand">
+      <h1>1024 <span class="neon-m">解愿扭蛋局</span></h1>
+      <p class="slogan">同学的问题，扭个办法</p>
+    </div>
+    <div class="chips">
+      <div id="counter" class="chip">剩余扭蛋 52</div>
+      <div id="solvedChip" class="chip chip-gold">已还愿 0</div>
+    </div>
+  </header>
+
+  <!-- 底部按钮 -->
+  <footer class="hud hud-bottom">
+    <button id="shakeBtn" class="shake-btn" aria-label="摇动扭蛋机">
+      <span class="shake-icon">↻</span>
+      <span class="shake-label">摇动</span>
+    </button>
+    <p class="hint">点击按钮或按空格键 · 手机上可以直接摇一摇</p>
+  </footer>
+
+  <!-- 心愿卡 -->
+  <div id="cardOverlay" class="overlay">
+    <div class="card">
+      <button id="cardClose" class="card-close" aria-label="关闭">✕</button>
+      <div class="card-head">
+        <span id="cardBadge" class="card-badge">心愿卡</span>
+        <span id="cardNo" class="card-no">第 1/52 颗</span>
+      </div>
+      <div class="card-body">
+        <p id="cardText"></p>
+        <div id="solutionBox" class="solution-box">
+          <div class="sol-badge">✨ 已解案例 · 同学的还愿</div>
+          <p id="solutionText"></p>
+          <div id="solutionAuthor" class="sol-author"></div>
+        </div>
+        <button id="skipType" class="skip-type">跳过 ⏵</button>
+      </div>
+      <div id="cardMeta" class="card-meta">来自 1 班同学 · 匿名</div>
+      <div class="card-actions">
+        <button id="nextBtn" class="btn btn-primary">再扭一颗</button>
+        <button id="wishBtn" class="btn btn-ghost">我来解愿</button>
+      </div>
+
+      <!-- 解愿输入面板 -->
+      <div id="solvePanel" class="solve-panel">
+        <h3>我来解愿</h3>
+        <p class="solve-hint">写下你的解决办法，能用技术就用技术。提交后它会变成一颗<b>金蛋</b>回投扭蛋机，被下一位同学抽到。</p>
+        <textarea id="solveInput" placeholder="我的办法是……" maxlength="500"></textarea>
+        <input id="solveName" type="text" placeholder="署名（选填，默认匿名）" maxlength="12">
+        <div class="solve-actions">
+          <button id="solveCancel" class="btn btn-ghost">取消</button>
+          <button id="solveSubmit" class="btn btn-primary">回投扭蛋机</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 抽空结算 -->
+  <div id="emptyOverlay" class="overlay">
+    <div class="card empty-card">
+      <div class="empty-emoji">🎡</div>
+      <h2>今日扭蛋已抽空！</h2>
+      <p id="emptyStats">52 颗烦恼都被领走了。</p>
+      <div id="wallList" class="wall-list"></div>
+      <button id="resetBtn" class="btn btn-primary">补满扭蛋机</button>
+    </div>
+  </div>
+
+  <div id="toast" class="toast"></div>
+
+  <script type="module" src="./js/main.js"></script>
+</body>
+</html>

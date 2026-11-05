@@ -1,0 +1,521 @@
+/* 1024 解愿扭蛋局 —— 赛博夜市霓虹 UI */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --cyan: #00e5ff;
+  --magenta: #ff3ea5;
+  --yellow: #ffd166;
+  --ink: #05010f;
+  --text: #eaf6ff;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: var(--ink);
+  color: var(--text);
+  font-family: "PingFang SC", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+}
+
+#scene {
+  position: fixed;
+  inset: 0;
+}
+
+#scene canvas { display: block; }
+
+/* ---------- HUD ---------- */
+.hud {
+  position: fixed;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 28px;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.hud-top { top: 0; }
+.hud-bottom {
+  bottom: 26px;
+  left: auto;
+  right: 26px;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+.brand h1 {
+  font-size: 26px;
+  letter-spacing: 2px;
+  color: var(--cyan);
+  text-shadow: 0 0 12px rgba(0, 229, 255, 0.8), 0 0 40px rgba(0, 229, 255, 0.35);
+}
+
+.neon-m {
+  color: var(--magenta);
+  text-shadow: 0 0 12px rgba(255, 62, 165, 0.8), 0 0 40px rgba(255, 62, 165, 0.35);
+}
+
+.slogan {
+  margin-top: 4px;
+  font-size: 13px;
+  letter-spacing: 4px;
+  color: rgba(234, 246, 255, 0.65);
+}
+
+.chips { display: flex; gap: 10px; }
+
+.chip {
+  padding: 8px 18px;
+  border: 1px solid rgba(0, 229, 255, 0.55);
+  border-radius: 999px;
+  background: rgba(5, 1, 15, 0.55);
+  backdrop-filter: blur(8px);
+  font-size: 14px;
+  letter-spacing: 1px;
+  color: var(--cyan);
+  box-shadow: 0 0 14px rgba(0, 229, 255, 0.35) inset, 0 0 18px rgba(0, 229, 255, 0.2);
+}
+
+.chip-gold {
+  border-color: rgba(255, 209, 102, 0.6);
+  color: var(--yellow);
+  box-shadow: 0 0 14px rgba(255, 209, 102, 0.3) inset, 0 0 18px rgba(255, 209, 102, 0.18);
+}
+
+/* ---------- 摇动按钮 ---------- */
+.shake-btn {
+  pointer-events: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  width: 108px;
+  height: 108px;
+  border-radius: 50%;
+  border: 2px solid var(--magenta);
+  background: radial-gradient(circle at 35% 30%, rgba(255, 62, 165, 0.35), rgba(5, 1, 15, 0.85) 70%);
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0 0 24px rgba(255, 62, 165, 0.55), 0 0 60px rgba(255, 62, 165, 0.25);
+  transition: transform 0.15s, box-shadow 0.15s, opacity 0.3s;
+  animation: breathe 2.4s ease-in-out infinite;
+}
+
+.shake-btn:hover { transform: scale(1.06); }
+
+.shake-btn.disabled {
+  opacity: 0.45;
+  pointer-events: none;
+  animation: none;
+}
+
+.shake-btn.pulse { animation: pulse 0.6s ease-in-out 3; }
+
+.shake-icon { font-size: 34px; line-height: 1; }
+.shake-label { font-size: 15px; letter-spacing: 3px; }
+
+@keyframes breathe {
+  0%, 100% { box-shadow: 0 0 24px rgba(255, 62, 165, 0.55), 0 0 60px rgba(255, 62, 165, 0.25); }
+  50% { box-shadow: 0 0 34px rgba(255, 62, 165, 0.85), 0 0 80px rgba(255, 62, 165, 0.4); }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.12); }
+}
+
+.hint {
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: rgba(234, 246, 255, 0.45);
+}
+
+/* ---------- 心愿卡 ---------- */
+.overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(3, 0, 12, 0.6);
+  backdrop-filter: blur(6px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s;
+  z-index: 20;
+  padding: 20px;
+}
+
+.overlay.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.card {
+  position: relative;
+  width: min(560px, 92vw);
+  max-height: 82vh;
+  display: flex;
+  flex-direction: column;
+  border-radius: 22px;
+  border: 1px solid rgba(0, 229, 255, 0.5);
+  background: linear-gradient(160deg, rgba(16, 20, 48, 0.92), rgba(8, 4, 24, 0.95));
+  box-shadow: 0 0 40px rgba(0, 229, 255, 0.3), 0 0 120px rgba(255, 62, 165, 0.15),
+    0 24px 60px rgba(0, 0, 0, 0.6);
+  padding: 26px 28px;
+  transform: translateY(24px) scale(0.96);
+  transition: transform 0.4s cubic-bezier(0.2, 1.4, 0.4, 1);
+}
+
+.card.gold {
+  border-color: rgba(255, 209, 102, 0.65);
+  box-shadow: 0 0 44px rgba(255, 209, 102, 0.35), 0 0 120px rgba(255, 209, 102, 0.18),
+    0 24px 60px rgba(0, 0, 0, 0.6);
+}
+
+.overlay.show .card { transform: translateY(0) scale(1); }
+
+.card-close {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1px solid rgba(234, 246, 255, 0.25);
+  background: transparent;
+  color: rgba(234, 246, 255, 0.7);
+  font-size: 15px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.card-close:hover { border-color: var(--magenta); color: var(--magenta); }
+
+.card-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.card-badge {
+  padding: 5px 14px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--cyan), #4d7cff);
+  color: #02131a;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 2px;
+  box-shadow: 0 0 16px rgba(0, 229, 255, 0.6);
+}
+
+.card-badge.gold {
+  background: linear-gradient(90deg, var(--yellow), #ff9d2e);
+  box-shadow: 0 0 18px rgba(255, 209, 102, 0.7);
+}
+
+.card-no {
+  font-size: 13px;
+  letter-spacing: 1px;
+  color: rgba(234, 246, 255, 0.55);
+}
+
+.card-body {
+  position: relative;
+  flex: 1;
+  min-height: 90px;
+  overflow-y: auto;
+  padding-right: 6px;
+}
+
+.card-body::-webkit-scrollbar { width: 5px; }
+.card-body::-webkit-scrollbar-thumb { background: rgba(0, 229, 255, 0.35); border-radius: 3px; }
+
+#cardText {
+  font-size: 17px;
+  line-height: 1.85;
+  letter-spacing: 0.5px;
+  color: var(--text);
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+/* ---------- 已解案例 ---------- */
+.solution-box {
+  display: none;
+  margin-top: 16px;
+  padding: 16px 18px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 209, 102, 0.45);
+  background: linear-gradient(160deg, rgba(255, 209, 102, 0.1), rgba(255, 157, 46, 0.05));
+}
+
+.solution-box.show { display: block; }
+
+.sol-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--yellow), #ff9d2e);
+  color: #241300;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+  box-shadow: 0 0 14px rgba(255, 209, 102, 0.5);
+}
+
+#solutionText {
+  font-size: 15px;
+  line-height: 1.8;
+  color: #ffeec9;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.sol-author {
+  margin-top: 8px;
+  font-size: 12px;
+  letter-spacing: 1px;
+  color: rgba(255, 209, 102, 0.6);
+}
+
+.skip-type {
+  position: sticky;
+  bottom: 4px;
+  float: right;
+  margin-top: 8px;
+  padding: 4px 12px;
+  font-size: 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 209, 102, 0.6);
+  background: rgba(5, 1, 15, 0.7);
+  color: var(--yellow);
+  cursor: pointer;
+  display: none;
+}
+
+.skip-type.show { display: inline-block; }
+
+.card-meta {
+  margin-top: 14px;
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: rgba(234, 246, 255, 0.45);
+}
+
+.card-actions {
+  display: flex;
+  gap: 14px;
+  margin-top: 20px;
+}
+
+.btn {
+  flex: 1;
+  padding: 13px 0;
+  border-radius: 14px;
+  font-size: 15px;
+  letter-spacing: 3px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn-primary {
+  border: none;
+  background: linear-gradient(90deg, var(--cyan), #4d7cff);
+  color: #02131a;
+  font-weight: 700;
+  box-shadow: 0 0 20px rgba(0, 229, 255, 0.45);
+}
+
+.btn-primary:hover { box-shadow: 0 0 30px rgba(0, 229, 255, 0.75); transform: translateY(-1px); }
+
+.btn-primary:disabled {
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+.btn-gold {
+  border: none;
+  background: linear-gradient(90deg, var(--yellow), #ff9d2e);
+  color: #241300;
+  font-weight: 700;
+  box-shadow: 0 0 20px rgba(255, 209, 102, 0.45);
+}
+
+.btn-gold:hover { box-shadow: 0 0 30px rgba(255, 209, 102, 0.75); transform: translateY(-1px); }
+
+.btn-ghost {
+  border: 1px solid rgba(255, 62, 165, 0.6);
+  background: transparent;
+  color: var(--magenta);
+}
+
+.btn-ghost:hover { background: rgba(255, 62, 165, 0.12); box-shadow: 0 0 18px rgba(255, 62, 165, 0.35); }
+
+.btn-ghost.done {
+  border-color: rgba(255, 209, 102, 0.6);
+  color: var(--yellow);
+  pointer-events: none;
+}
+
+/* ---------- 解愿面板 ---------- */
+.solve-panel {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  padding: 26px 28px;
+  border-radius: 22px;
+  background: linear-gradient(160deg, rgba(26, 18, 44, 0.98), rgba(12, 6, 28, 0.99));
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(12px);
+  transition: 0.3s;
+}
+
+.solve-panel.show {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.solve-panel h3 {
+  color: var(--yellow);
+  letter-spacing: 3px;
+  margin-bottom: 10px;
+  text-shadow: 0 0 14px rgba(255, 209, 102, 0.5);
+}
+
+.solve-hint {
+  font-size: 13px;
+  line-height: 1.8;
+  color: rgba(234, 246, 255, 0.65);
+  margin-bottom: 14px;
+}
+
+.solve-hint b { color: var(--yellow); }
+
+#solveInput {
+  flex: 1;
+  min-height: 110px;
+  resize: none;
+  padding: 14px 16px;
+  border-radius: 14px;
+  border: 1px solid rgba(0, 229, 255, 0.4);
+  background: rgba(5, 1, 15, 0.6);
+  color: var(--text);
+  font-size: 15px;
+  font-family: inherit;
+  line-height: 1.7;
+  outline: none;
+}
+
+#solveInput:focus { border-color: var(--cyan); box-shadow: 0 0 14px rgba(0, 229, 255, 0.3); }
+
+#solveName {
+  margin-top: 12px;
+  padding: 10px 16px;
+  border-radius: 12px;
+  border: 1px solid rgba(234, 246, 255, 0.2);
+  background: rgba(5, 1, 15, 0.6);
+  color: var(--text);
+  font-size: 14px;
+  font-family: inherit;
+  outline: none;
+}
+
+#solveName:focus { border-color: var(--magenta); }
+
+.solve-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 14px;
+}
+
+/* ---------- 抽空结算 ---------- */
+.empty-card { align-items: center; text-align: center; padding: 40px 32px; }
+.empty-emoji { font-size: 52px; margin-bottom: 12px; }
+.empty-card h2 { color: var(--yellow); letter-spacing: 3px; margin-bottom: 12px; }
+.empty-card p { font-size: 14px; line-height: 1.9; color: rgba(234, 246, 255, 0.65); margin-bottom: 18px; }
+.empty-card .btn { max-width: 240px; }
+
+.wall-list {
+  width: 100%;
+  max-height: 220px;
+  overflow-y: auto;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.wall-list::-webkit-scrollbar { width: 5px; }
+.wall-list::-webkit-scrollbar-thumb { background: rgba(255, 209, 102, 0.35); border-radius: 3px; }
+
+.wall-item {
+  padding: 10px 14px;
+  margin-bottom: 8px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 209, 102, 0.3);
+  background: rgba(255, 209, 102, 0.06);
+}
+
+.wall-q {
+  font-size: 12px;
+  color: rgba(234, 246, 255, 0.5);
+  margin-bottom: 4px;
+}
+
+.wall-q::before { content: '烦恼 · '; color: rgba(0, 229, 255, 0.6); }
+
+.wall-s {
+  font-size: 13px;
+  line-height: 1.6;
+  color: #ffeec9;
+}
+
+.wall-s::before { content: '还愿 · '; color: rgba(255, 209, 102, 0.7); }
+
+/* ---------- Toast ---------- */
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 170px;
+  transform: translateX(-50%) translateY(20px);
+  padding: 10px 22px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 209, 102, 0.5);
+  background: rgba(5, 1, 15, 0.85);
+  color: var(--yellow);
+  font-size: 13px;
+  letter-spacing: 1px;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.3s;
+  z-index: 30;
+  white-space: nowrap;
+}
+
+.toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+/* ---------- 移动端 ---------- */
+@media (max-width: 640px) {
+  .hud { padding: 14px 16px; }
+  .brand h1 { font-size: 19px; }
+  .slogan { font-size: 11px; letter-spacing: 2px; }
+  .chip { font-size: 12px; padding: 6px 12px; }
+  .shake-btn { width: 92px; height: 92px; }
+  .shake-icon { font-size: 28px; }
+  .card { padding: 20px; }
+  #cardText { font-size: 15px; }
+  .hint { display: none; }
+  .solve-panel { padding: 20px; }
+  .hud-bottom { right: 16px; bottom: 16px; }
+}

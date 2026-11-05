@@ -1,0 +1,366 @@
+[
+  {
+    "id": 1,
+    "class": "1 班",
+    "problem": "我使用电脑比较频繁，要带着电脑去教室去自习室又带回宿舍，有时候想偷懒不带，但对我完成事务又特别不方便，其实带出门一次使用的时长并不久，但不带好像又不行。这个问题好像解决不了",
+    "status": "pending",
+    "solution": null
+  },
+  {
+    "id": 2,
+    "class": "1 班",
+    "problem": "课程教学内容和我个人目前发展目标偏离太大，课程太水或者教师教学方法不适合我，又要求出席率。就算大学本科期间无法给学生提供足够正反馈，但是就连留给学生自己寻找正反馈的机会都越来越少。上两周课还不如和AI学一个下午。没想到有一天「上课」这件事能阻碍自己的学习。",
+    "status": "pending",
+    "solution": null
+  },
+  {
+    "id": 3,
+    "class": "1 班",
+    "problem": "刚回到宿舍快递就到了、外卖送餐不准时",
+    "status": "pending",
+    "solution": null
+  },
+  {
+    "id": 4,
+    "class": "1 班",
+    "problem": "各种各样，五花八门，各显神通的作业➕拖延症",
+    "status": "pending",
+    "solution": null
+  },
+  {
+    "id": 5,
+    "class": "1 班",
+    "problem": "每天早八关掉闹钟，想着再睡一会儿就昏迷过去了（容易迟到）。订好几个闹钟或者早点睡觉，也可以起床时开个床头灯一直照着自然就起来了",
+    "status": "pending",
+    "solution": null
+  },
+  {
+    "id": 6,
+    "class": "1 班",
+    "problem": "最头疼的问题是感觉有拖延症。一拖再拖，没动力、总觉得还有时间把大任务拆分成小任务、分开完成",
+    "status": "pending",
+    "solution": null
+  },
+  {
+    "id": 7,
+    "class": "1 班",
+    "problem": "最头疼最烦恼的问题:专注力不足，容易走神",
+    "status": "pending",
+    "solution": null
+  },
+  {
+    "id": 8,
+    "class": "1 班",
+    "problem": "最头疼的问题：每天都有新作业但之前的作业还没做，拖延症晚期重复最高的事：每天都在思考要吃什么",
+    "status": "pending",
+    "solution": null
+  },
+  {
+    "id": 9,
+    "class": "1 班",
+    "problem": "每次花钱前都得思考一下还剩多少生活费，花超了就坏了，",
+    "status": "pending",
+    "solution": null
+  },
+  {
+    "id": 10,
+    "class": "1 班",
+    "problem": "问题：健忘重复度最高：打开手机看笔记或聊天记录来追溯记忆希望更好的方式：用ai做一个小助手来督促我，根据这学期的一些问题，小助手需要有记录我曾经整理好或者理清楚的思路功能，这样在我需要的时候可以调用出来，它一定是整日中在我打开手机没有及时记录问题而去娱乐时会弹出来的。",
+    "status": "pending",
+    "solution": null
+  },
+  {
+    "id": 11,
+    "class": "1 班",
+    "problem": "每天都在想自己的生活费去了哪里，为什么去的这么快……",
+    "status": "pending",
+    "solution": null
+  },
+  {
+    "id": 12,
+    "class": "1 班",
+    "problem": "有很多琐碎的突发事件要处理，经常打乱已有的安排",
+    "status": "pending",
+    "solution": null
+  },
+  {
+    "id": 13,
+    "class": "1 班",
+    "problem": "各种作业的“高利贷”，部分学科上课没听懂打算课后补，网课和ddl越拖越多，偶尔依旧对未来感到迷茫，在拖延欠债焦虑补债又欠中重复",
+    "status": "pending",
+    "solution": null
+  },
+  {
+    "id": 14,
+    "class": "1 班",
+    "problem": "各大app的开屏广告，一不留神摇一摇就从美团跳转到抖音然后打开了又是很多找不到❌❌的小游戏，而且开屏广告或者推广广告入侵了越来越多的app，不仅是自己下载的，系统自带的也有，黑白无常来了都要看完双十一的惊喜优惠再看自己今天该去哪里巡逻。于年轻人而言都如此，更何况是老年人，难以分辨的❌❌和误触的毫无防备的先用后付，真让人恼火。",
+    "status": "pending",
+    "solution": null
+  },
+  {
+    "id": 15,
+    "class": "1 班",
+    "problem": "校园网波动大  经常会出现高度不可用状态  网速还慢  有急事刚好又撞上校园网不稳定的时候经常需要手机开热点耗流量解决",
+    "status": "pending",
+    "solution": null
+  },
+  {
+    "id": 16,
+    "class": "1 班",
+    "problem": "每次上课前都要先进入几分钟的懵逼状态，过后才能回忆起上节课所学知识。尤其是数学课这种高强度课，一个星期只有一两节每次都隔很久，只有平时完成作业和期末考试前才会复盘，平时基本不会花时间，但是上课的时候有时候就会因为忘记上节课的内容进入一种懵逼状态",
+    "status": "pending",
+    "solution": null
+  },
+  {
+    "id": 17,
+    "class": "1 班",
+    "problem": "既是头疼的问题，也是重复度高的问题：如何高效地网购并且不踩雷。每次买东西都会纠结犹豫，上网看一段时间的测评和攻略，但是广告又很泛滥，购物平台的介绍也都差不多，评价有好有坏看不出来。",
+    "status": "pending",
+    "solution": null
+  },
+  {
+    "id": 18,
+    "class": "1 班",
+    "problem": "想今天要做什么是重复度最高的事，两眼一挣就是迷茫，希望找到有趣的事和想要追求的方向来解决，不然可能无聊到不知道干什么，或者把以后的事情提前做完来解决这个问题。",
+    "status": "pending",
+    "solution": null
+  },
+  {
+    "id": 19,
+    "class": "1 班",
+    "problem": "每天健身想控制饮食，但发现学校其实没有太多热量少的饭供你选择，大多数都是高油高糖，如果每天公式化的很干净的饮食（鸭腿饭，简餐，荞麦面…）吃久了也会吃不下，特别是到了晚上真的很饿，然后偶尔的一次放纵餐又会让我觉得自己这一周白练了🤣感觉迈开腿很容易，管住嘴真的很难🌚",
+    "status": "pending",
+    "solution": null
+  },
+  {
+    "id": 20,
+    "class": "1 班",
+    "problem": "每次在学校拿快递都要跑很多个不同的快递驿站拿，路上来回奔波，耗费大量时间，好烦。去同心楼上课，距离较远，总是找不到电动车，小白车也没了，好烦。",
+    "status": "pending",
+    "solution": null
+  },
+  {
+    "id": 21,
+    "class": "1 班",
+    "problem": "做英语作业要用n个软件园区门口老是没有电动车 反而同心楼有很多",
+    "status": "pending",
+    "solution": null
+  },
+  {
+    "id": 22,
+    "class": "1 班",
+    "problem": "记账吧，日常开销零散，奶茶、通勤、网购、食堂消费记录分散在各个支付软件，每次晚上手动记账、分类统计很麻烦，属于重复性工作。想要可以自动分类账单、统计开销的方式，不用自己一笔一笔录入",
+    "status": "pending",
+    "solution": null
+  },
+  {
+    "id": 23,
+    "class": "1 班",
+    "problem": "生活中最想解决的是想调整好作息早睡早起，但是总是忍不住熬夜",
+    "status": "pending",
+    "solution": null
+  },
+  {
+    "id": 24,
+    "class": "1 班",
+    "problem": "如何更好地集中精力去做眼前的事情，这是希望能解决的",
+    "status": "pending",
+    "solution": null
+  },
+  {
+    "id": 25,
+    "class": "1 班",
+    "problem": "最头疼就是每天都要早起，很痛苦。重复度最高的是学习之前要做很久的心理准备",
+    "status": "pending",
+    "solution": null
+  },
+  {
+    "id": 26,
+    "class": "1 班",
+    "problem": "选择午餐晚餐吃什么，整理相册和笔记",
+    "status": "pending",
+    "solution": null
+  },
+  {
+    "id": 27,
+    "class": "2 班",
+    "problem": "1.计划想做的事总是没有落实，新鲜劲一过就更不想去做了2.刷网课，校园走",
+    "status": "pending",
+    "solution": null
+  },
+  {
+    "id": 28,
+    "class": "2 班",
+    "problem": "重复度高：每天都考虑吃什么 穿什么 上什么课  有哪些课上任务需要按时完成",
+    "status": "pending",
+    "solution": null
+  },
+  {
+    "id": 29,
+    "class": "2 班",
+    "problem": "睡眠质量不高，培养良好睡眠习惯",
+    "status": "pending",
+    "solution": null
+  },
+  {
+    "id": 30,
+    "class": "2 班",
+    "problem": "最头疼最烦恼的问题是人际关系。世界上每个人都是不一样的，很难用一套相同的准则去和每一个人相处，对待不同的人需要调整自己的应对方式，但你又很难说完全了解ta，可能在不经意间又会伤害到ta，然后导致双方的内耗。我觉得人际关系真的是一门很难的学问了。",
+    "status": "pending",
+    "solution": null
+  },
+  {
+    "id": 31,
+    "class": "2 班",
+    "problem": "吃得少，饿得快。一到半夜就挨饿。Q_Q",
+    "status": "pending",
+    "solution": null
+  },
+  {
+    "id": 32,
+    "class": "2 班",
+    "problem": "最烦恼：作业考试ddl重复率高：打卡，游戏的日常任务解决方式：接入ai帮忙管理日程，帮忙打卡和做游戏日常任务",
+    "status": "pending",
+    "solution": null
+  },
+  {
+    "id": 33,
+    "class": "2 班",
+    "problem": "每天上午第二节课和下午第一节课课程安排太过相近没有时间睡觉，学校日常出行不方便，宿舍楼离教学楼远的要走15分钟，近的要8分钟，外出也不方便，打车在人流量多的时候非常贵，6km就要20块",
+    "status": "pending",
+    "solution": null
+  },
+  {
+    "id": 34,
+    "class": "2 班",
+    "problem": "没有动力，超级拖延症。那怕规划弄好了，也很难去执行。（因为中间有些东西必须要解决，但自己很排斥）",
+    "status": "pending",
+    "solution": null
+  },
+  {
+    "id": 35,
+    "class": "2 班",
+    "problem": "晚上睡不着导致作息紊乱，吃褪黑素能快速入睡但第二天精神不好",
+    "status": "pending",
+    "solution": null
+  },
+  {
+    "id": 36,
+    "class": "2 班",
+    "problem": "大概是日程分配短线任务很临时，长线任务战线长，人脑没那么多容量感觉最需要的是个了解我所有日程的管家，在早上把所有东西推到我的主页",
+    "status": "pending",
+    "solution": null
+  },
+  {
+    "id": 37,
+    "class": "2 班",
+    "problem": "我最烦恼的问题是注意力不集中，做一件事不能长时间坚持。",
+    "status": "pending",
+    "solution": null
+  },
+  {
+    "id": 38,
+    "class": "2 班",
+    "problem": "喝水 作为人类 每天需要摄入一定的水 但对于不爱喝水的人这是一项极其繁重的任务 每天要喝够一点的水 重复度很高 需要高效的解决",
+    "status": "pending",
+    "solution": null
+  },
+  {
+    "id": 39,
+    "class": "2 班",
+    "problem": "消息容易遗漏、拖延症",
+    "status": "pending",
+    "solution": null
+  },
+  {
+    "id": 40,
+    "class": "2 班",
+    "problem": "各种零零碎碎学习任务和通知，统计作业，我希望有一个工具可以集中收纳各类通知，自动提醒截止时间",
+    "status": "pending",
+    "solution": null
+  },
+  {
+    "id": 41,
+    "class": "2 班",
+    "problem": "最头疼学校小白车没了，去同心楼拓新楼上课好远不方便",
+    "status": "pending",
+    "solution": null
+  },
+  {
+    "id": 42,
+    "class": "2 班",
+    "problem": "我最烦恼的问题是花钱事后觉得花亏了，没有最大化尽到这份钱的价值，有时会惦记很久，心累。",
+    "status": "pending",
+    "solution": null
+  },
+  {
+    "id": 43,
+    "class": "2 班",
+    "problem": "最烦周末的日语辅修了。每天都在背日语单词",
+    "status": "pending",
+    "solution": null
+  },
+  {
+    "id": 44,
+    "class": "2 班",
+    "problem": "我最头疼的事是我的考驾照问题，我有空的时候教练老是没空，仿佛我们的时间错开了，导致我练车的次数太少了。",
+    "status": "pending",
+    "solution": null
+  },
+  {
+    "id": 45,
+    "class": "2 班",
+    "problem": "没钱",
+    "status": "pending",
+    "solution": null
+  },
+  {
+    "id": 46,
+    "class": "2 班",
+    "problem": "现在Ai太强大了 什么事情自己做要很久 丢给智能体几分钟就做完了 虽然很快很爽 但是一点参与感都没有 虽然确实能产出我想要的东西 但是有一种实际上我什么也不会的惶恐感 不踏实 心里很虚",
+    "status": "pending",
+    "solution": null
+  },
+  {
+    "id": 47,
+    "class": "2 班",
+    "problem": "头疼烦恼问题:疲于学业，有时任务会拖延到最后一刻匆忙赶完重复高的事:校园跑，刷学习通网课",
+    "status": "pending",
+    "solution": null
+  },
+  {
+    "id": 48,
+    "class": "2 班",
+    "problem": "时间不够用啊",
+    "status": "pending",
+    "solution": null
+  },
+  {
+    "id": 49,
+    "class": "2 班",
+    "problem": "最头疼最烦恼的问题是  要和惰性和一些想法作斗争重复度最高的事情是洗衣服晾衣服一些家务琐事 感觉很浪费时间 希望用机器人解决。",
+    "status": "pending",
+    "solution": null
+  },
+  {
+    "id": 50,
+    "class": "2 班",
+    "problem": "最头疼的问题是拖延症 经常卡着截止日期做完",
+    "status": "pending",
+    "solution": null
+  },
+  {
+    "id": 51,
+    "class": "2 班",
+    "problem": "不知道点什么外卖了。🫡",
+    "status": "pending",
+    "solution": null
+  },
+  {
+    "id": 52,
+    "class": "2 班",
+    "problem": "每天最头疼最烦恼的问题就是不知道要干什么，非常无聊，或者换句话说，就是寻找一件有趣的事情",
+    "status": "pending",
+    "solution": null
+  }
+]
